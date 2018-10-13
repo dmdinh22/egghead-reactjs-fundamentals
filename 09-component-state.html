@@ -14,15 +14,30 @@
 
   <script type="text/babel">
     function StopWatch() {
+      const buttonStyles = {
+          border: '1px solid #ccc',
+          background: '#fff',
+          fontSize: '2em',
+          padding: 15,
+          margin: 5,
+          width: 200,
+      }
       return (
-          <div>
-              <label>0ms</label>
-              <button>Start</button>
-              <button>Clear</button>
+          <div style={{textAlign: 'center'}}>
+              <label
+                style={{
+                  fontSize: '5em',
+                  display: 'block',
+                }}
+              >
+                  0ms
+              </label>
+              <button style={buttonStyles}>Start</button>
+              <button style={buttonStyles}>Clear</button>
           </div>
         )
     }
-    
+
     const element = <StopWatch />
 
     ReactDOM.render(
