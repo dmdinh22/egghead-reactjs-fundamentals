@@ -30,7 +30,7 @@
           </p>
           <p>You typed: {state.username}</p>
           <p>
-            <input />
+            <input onBlur={updateUsername} />
           </p>
         </div>
       )
@@ -39,6 +39,12 @@
     function increment() {
       setState({ eventCount: state.eventCount +1
       })
+    }
+
+    function updateUsername(event) {
+      setState({
+        username: event.target.value  
+      })  
     }
 
     function setState(newState) {
