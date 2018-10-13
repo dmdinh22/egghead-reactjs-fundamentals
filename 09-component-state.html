@@ -13,12 +13,22 @@
   <script src="https://unpkg.com/prop-types@15.6.1/prop-types.js"></script>
 
   <script type="text/babel">
-    const element = <div />
+    function StopWatch() {
+      return (
+          <div>
+              <label>0ms</label>
+              <button>Start</button>
+              <button>Clear</button>
+          </div>
+        )
+    }
+    
+    const element = <StopWatch />
 
-      ReactDOM.render(
-        element,
-        document.getElementById('root')
-      )
+    ReactDOM.render(
+      element,
+      document.getElementById('root')
+    )
 
     </script>
 </body>
