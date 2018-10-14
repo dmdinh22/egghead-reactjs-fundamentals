@@ -17,13 +17,19 @@
       state = {lapse: 0, running: false}
 
       handleRunClick = () => {
-        const startTime = Date.now() - this.state.lapse;
+        this.setState(state => {
+          if (state.running) {
+            clearInterval(this.timer);
+          } else {
+            const startTime = Date.now() - this.state.lapse;
 
-        setInterval(() => {
-          this.setState({lapse: Date.now() - startTime})
+            this.timer = setInterval(() => {
+              this.setState({lapse: Date.now() - startTime})
+            })
+         }
+
+          return {running: !state.running}
         })
-
-        this.setState({running: true})
       }
 
       handleClearClick = () => {
