@@ -13,29 +13,33 @@
   <script src="https://unpkg.com/prop-types@15.6.1/prop-types.js"></script>
 
   <script type="text/babel">
-    function StopWatch({lapse, running}) {
-      const buttonStyles = {
-          border: '1px solid #ccc',
-          background: '#fff',
-          fontSize: '2em',
-          padding: 15,
-          margin: 5,
-          width: 200,
+    class StopWatch extends React.Component {
+      render() {
+        const {lapse, running} = this.props;
+
+        const buttonStyles = {
+            border: '1px solid #ccc',
+            background: '#fff',
+            fontSize: '2em',
+            padding: 15,
+            margin: 5,
+            width: 200,
+        }
+        return (
+            <div style={{textAlign: 'center'}}>
+                <label
+                  style={{
+                    fontSize: '5em',
+                    display: 'block',
+                  }}
+                >
+                    {lapse}ms
+                </label>
+                <button style={buttonStyles}>{running ? 'Stop' : 'Start'}</button>
+                <button style={buttonStyles}>Clear</button>
+            </div>
+          )
       }
-      return (
-          <div style={{textAlign: 'center'}}>
-              <label
-                style={{
-                  fontSize: '5em',
-                  display: 'block',
-                }}
-              >
-                  {lapse}ms
-              </label>
-              <button style={buttonStyles}>{running ? 'Stop' : 'Start'}</button>
-              <button style={buttonStyles}>Clear</button>
-          </div>
-        )
     }
 
     const element = <StopWatch running={false} lapse={10}/>
@@ -45,7 +49,7 @@
       document.getElementById('root')
     )
 
-    </script>
+  </script>
 </body>
 
 </html>
