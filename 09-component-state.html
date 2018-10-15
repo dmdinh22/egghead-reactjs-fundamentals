@@ -25,6 +25,8 @@
 
             this.timer = setInterval(() => {
               this.setState({lapse: Date.now() - startTime})
+            }, () => {
+
             })
          }
 
@@ -35,6 +37,10 @@
       handleClearClick = () => {
         clearInterval(this.timer);
         this.setState({lapse: 0, running: false});
+      }
+
+      componentWillUnmount() {
+        clearInterval(this.timer);
       }
 
       render() {
