@@ -16,13 +16,13 @@
     class Counter extends React.Component {
         // public class fields
         state = {count: 0}
-        handleClick = this.handleClick.bind(this);
 
-        handleClick() {
+        // only have the method on the instance instead of on prototype
+        handleClick = function() {
           this.setState(({count}) => ({
             count: count + 1
           }))
-        }
+        }.bind(this)
 
         render() {
           return (
