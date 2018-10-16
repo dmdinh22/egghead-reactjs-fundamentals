@@ -17,12 +17,12 @@
         // public class fields
         state = {count: 0}
 
-        // only have the method on the instance instead of on prototype
-        handleClick = function() {
+        // using lexical 'this' from arrow fns
+        handleClick = () => {
           this.setState(({count}) => ({
             count: count + 1
           }))
-        }.bind(this)
+        }
 
         render() {
           return (
