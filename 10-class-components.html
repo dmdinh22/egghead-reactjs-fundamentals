@@ -19,13 +19,15 @@
           this.state = {count: 0}
         }
 
+        handleClick() {
+          this.setState(({count}) => ({
+            count: count + 1
+          }))
+        }
+
         render() {
           return (
-            <button onClick={() => 
-              this.setState(({count}) => ({
-                count: count + 1
-              }))
-            }>
+            <button onClick={this.handleClick.bind(this)}>
               {this.state.count}
             </button>
           )
