@@ -14,12 +14,9 @@
 
   <script type="text/babel">
     class Counter extends React.Component {
-        constructor(...args) {
-          super(...args)
-          this.state = {count: 0}
-          // binding method in ctor for performance optimization
-          this.handleClick = this.handleClick.bind(this);
-        }
+        // public class fields
+        state = {count: 0}
+        handleClick = this.handleClick.bind(this);
 
         handleClick() {
           this.setState(({count}) => ({
