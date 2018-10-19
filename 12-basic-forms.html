@@ -17,11 +17,11 @@
       handleSubmit = e => {
         e.preventDefault();
         console.log({target: e.target});
-        // using value
+        // using value fro raw html
         console.log(e.target[0].value);
-        // using username prop
+        // using username prop - raw html
         console.log(e.target.username.value);
-        // using ref
+        // using ref - only in react
         console.log(this.inputNode.value);
       }
       
@@ -30,7 +30,7 @@
             <form onSubmit={this.handleSubmit}>
                   <label>
                       Name: 
-                      <input type="text" name="username" ref={{node => this.inputNode = node})/>
+                      <input type="text" name="username" ref={node => (this.inputNode = node)} />
                   </label>
                   <button type="submit">Submit</button>
               </form>
