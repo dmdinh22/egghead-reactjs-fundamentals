@@ -50,6 +50,11 @@
                   Name:
                   <input type="text" onChange={this.handleChange} name="username" />
               </label>
+              {error ? (
+                <div style={{color: 'red'}}>
+                  {error}
+                </div>)
+                 : null}
               <button disabled={Boolean(error)} type="submit">Submit</button>
           </form>
         )
