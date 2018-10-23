@@ -23,9 +23,22 @@
               'peach',
           ]    
         state = {multline: '', commaSeparated: ''}
+
+        handleCommaSeparatedChange = event => {
+            console.log(event.target.value)
+        }
+
+        handleMultilineChange = event => {
+            console.log('handleMultilineChanged')
+        }
+
+        handleMultiSelectChanged = event => {
+            console.log('handleMultiSelectChanged')
+        }
           
         render() {
           const {commaSeparated, multiline} = this.state
+          
           return (
             <form>
                 <div>
@@ -35,6 +48,7 @@
                         <input 
                             type="text" 
                             value={commaSeparated}
+                            onChange={this.handleCommaSeparatedChange}
                         >
                     </label>
                 </div>
@@ -44,9 +58,8 @@
                         <br />
                         <textarea
                             value={multiline}
-                            rows={
-                                MyFancyForm.avalableOptions.length
-                            }
+                            rows={MyFancyForm.avalableOptions.length}
+                            onChange={this.handleMultilineChange}
                         />
                     </label>
                 </div>
