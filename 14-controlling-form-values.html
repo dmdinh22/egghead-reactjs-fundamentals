@@ -27,23 +27,27 @@
 
         handleCommaSeparatedChange = event => {
             const {value} = event.target;
-            this.setState({
-                commaSeparated: value,
-                multiline: value.split(',')
+            const allValues = value.split(',')
                                 .map(value => value.trim())
                                 .filter(Boolean)
-                                .join('\n')
+            this.setState({
+                commaSeparated: value,
+                multiline: allValues.join('\n'),
+                multiSelect: allValues.filter(val =>            MyFancyForm.availableOptions.includes(val)
+                )
             })
         }
 
         handleMultilineChange = event => {
             const {value} = event.target;
-            this.setState({
-                multiline: value,
-                commaSeparated: value.split('\n')
+            const allValues = value.split('\n')
                                      .map(value => value.trim())
                                      .filter(Boolean)
-                                    .join(',')
+            this.setState({
+                multiline: value,
+                commaSeparated: allValues.join(','),
+                multiSelect: allValues.filter(val =>            MyFancyForm.availableOptions.includes(val)
+                )
             })
         }
 
@@ -94,6 +98,16 @@
                                 this.handleMultiSelectChanged
                             }
                         >
+                        {MyFancyForm.availableOptions.map(
+                            optionValue => (
+                                <option
+                                key={optionValue}
+                                value={optionValue}
+                                >
+                                {optionValue}
+                                </option>
+                            ),
+                            )}
                         </select>
                     </label>
                 </div>
