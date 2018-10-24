@@ -1,19 +1,19 @@
 <html>
 
 <head>
-  <title>Beginner's Guide to React</title>
-  <meta charset="UTF-8" />
+    <title>Beginner's Guide to React</title>
+    <meta charset="UTF-8" />
 </head>
 
 <body>
-  <div id="root"></div>
-  <script src="https://unpkg.com/react@16.3.1/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.development.js"></script>
-  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
-  <script src="https://unpkg.com/prop-types@15.6.1/prop-types.js"></script>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.3.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script src="https://unpkg.com/prop-types@15.6.1/prop-types.js"></script>
 
-  <script type="text/babel">
-    class MyFancyForm extends React.Component {
+    <script type="text/babel">
+        class MyFancyForm extends React.Component {
           static availableOptions = [
               'apple',
               'grape',
@@ -22,6 +22,7 @@
               'pear',
               'peach',
           ]    
+
         state = {multline: '', commaSeparated: ''}
 
         handleCommaSeparatedChange = event => {
@@ -38,7 +39,7 @@
           
         render() {
           const {commaSeparated, multiline} = this.state
-          
+
           return (
             <form>
                 <div>
@@ -49,7 +50,8 @@
                             type="text" 
                             value={commaSeparated}
                             onChange={this.handleCommaSeparatedChange}
-                        >
+                            //onChange={this.handleCommaSeparatedChange}
+                       />
                     </label>
                 </div>
                 <div>
@@ -58,13 +60,14 @@
                         <br />
                         <textarea
                             value={multiline}
-                            rows={MyFancyForm.avalableOptions.length}
+                            rows={MyFancyForm.availableOptions.length}
                             onChange={this.handleMultilineChange}
                         />
                     </label>
                 </div>
             </form>
           )
+       }
       }
 
       ReactDOM.render(
