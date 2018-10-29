@@ -1,3 +1,3 @@
 # egghead-reactjs-fundamentals
 
-ReactJS Foundations taught by [Kent C. Dodds](https://github.com/kentcdodds)
+ReactJS Foundations taught by [Kent C. Dodds](https://github.com/kentcdodds) with working code samples.
