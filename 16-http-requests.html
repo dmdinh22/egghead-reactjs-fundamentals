@@ -6,8 +6,10 @@
   <div id="root"></div>
 
   <script type="text/babel">
+    import { TOKEN } from './secret'
+
     class UserCompany extends React.Component {
-    state = {company: undefined}
+    state = {company: undefined, loaded: false}
 
     componentDidMount() {
       axios({
@@ -21,13 +23,26 @@
         }`,
       },
       headers: {
-        Authorization: `bearer I DELETED THE TOKEN. YOU'LL HAVE TO MAKE YOUR OWN`,
+        Authorization: `bearer ${TOKEN}`,
         },
-      }).
+      })
+      .then(response => {
+        this.setState({
+          loaded: true,
+          company: response.data.data.user.company
+        })
+      })
+      .catch(err => {
+        this.setState({
+          error,
+          loaded: true
+        })
+        console.error(err)
+      }) 
     }
-       
+
     render() {
-      return this.state.company || 'Unknown'
+      return this.state.loaded ? this.state.company || 'Unknown' : ...
     }
   }
   
